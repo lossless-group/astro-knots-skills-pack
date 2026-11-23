@@ -18,11 +18,21 @@ metadata, analytics, and brand marks.
 
 ## Layout
 
-Each skill sits at `skills/<name>/SKILL.md`, the shape a pack will keep if it
-moves to its own repo (see `context-v/explorations/Organize-Our-Skills-into-Skill-Packs.md`
-at this repo's root). Harnesses still see each skill by its bare name:
-`sync-skills-symlinks.sh` links `~/.claude/skills/<name>` straight to the
-skill's folder, so a pack changes where a skill lives, not what it's called.
+Each skill sits at `skills/<name>/SKILL.md`. This repo is mounted into
+[`lossless-agent-skills`](https://github.com/lossless-group/lossless-agent-skills)
+as the submodule `skill-packs/astro-knots/`, and that repo's
+`sync-skills-symlinks.sh` links `~/.claude/skills/<name>` straight to each
+skill's folder, so harnesses see every skill by its bare name.
+
+To use the pack on its own, link each skill into your harness's skills
+directory:
+
+```bash
+for d in skills/*/; do ln -s "$PWD/$d" ~/.claude/skills/; done
+```
+
+Why packs exist: `context-v/explorations/Organize-Our-Skills-into-Skill-Packs.md`
+in `lossless-agent-skills`.
 
 ## Where else it appears
 

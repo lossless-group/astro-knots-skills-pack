@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+.env
+.env.local
+
+# Operator-specific particulars stay local; each skill documents its keys in a
+# committed config/private.example.json.
+**/config/private.json
+**/private-data/
+**/cache/
